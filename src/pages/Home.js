@@ -4,14 +4,18 @@ import "./styles/Home.css";
 import Navbar from "../components/Navbar";
 import poro from "../images/poro.png";
 import SummonerForm from '../components/SummonerForm'
-import '../../node_modules/kayn/dist/lib/Kayn'
+
 export default class Home extends Component {
   
-  
-    handleSubmit(e){ 
-        e.preventDefault();
-        console.log(e.target.summoner.value)
-      }
+
+  handleSubmit(e){ 
+    
+    e.preventDefault();
+     
+    var summonerName = e.target.summoner.value
+    console.log(summonerName)
+    this.props.history.push(`/summoner/${summonerName}`);
+  }
 
   render() {
     return (
@@ -24,7 +28,7 @@ export default class Home extends Component {
               <div className="title">
                 <h1>Obtén asistencia, estádistica & mucho más </h1>
                 <SummonerForm
-                    onSubmit={this.handleSubmit}
+                    onSubmit={this.handleSubmit.bind(this)}
                 />
               </div>
             </div>
