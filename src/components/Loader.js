@@ -1,20 +1,27 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import './Styles/Loader.css';
 
 export default class Loader extends Component {
   render() {
     return (
-      <div className="lds-grid">
-        <div />
-        <div />
-        <div />
-        <div />
-        <div />
-        <div />
-        <div />
-        <div />
-        <div />
+      <div className="container">
+        <div class="row h-100">
+          <div class="col-sm-12 my-auto">
+            <div class="w-25 mx-auto">
+              <div class="lds-grid">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

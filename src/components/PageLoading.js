@@ -1,12 +1,13 @@
-import React from 'react';
+import React from "react";
 
-import Loader from './Loader';
-import Navbar from '../components/Navbar'
+import Loader from "./Loader";
+import Navbar from "../components/Navbar";
 function PageLoading() {
   return (
     <div className="PageLoading">
-        <Navbar />
+      <Navbar />
       <Loader />
+
     </div>
   );
 }
