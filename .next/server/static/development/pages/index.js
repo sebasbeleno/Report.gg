@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -2044,35 +2044,131 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 class Navbar extends react__WEBPACK_IMPORTED_MODULE_1___default.a.Component {
   render() {
-    return __jsx("div", {
-      className: "navbar",
+    return __jsx("header", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 7
+      },
+      __self: this
+    }, __jsx("nav", {
+      className: "navbar mr-auto navbar-expand-lg navbar-light bg-transparent",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 8
       },
       __self: this
-    }, __jsx("div", {
-      className: "container",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 9
-      },
-      __self: this
-    }, __jsx("div", {
-      className: "row",
+    }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_0___default.a, {
+      href: "/",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 10
       },
       __self: this
-    }, __jsx("div", {
-      className: "col-6",
+    }, __jsx("a", {
+      className: "navbar-brand",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 11
       },
       __self: this
-    }))));
+    }, "Report.gg")), __jsx("button", {
+      className: "navbar-toggler",
+      type: "button",
+      "data-toggle": "collapse",
+      "data-target": "#navbarsExampleDefault",
+      "aria-controls": "navbarsExampleDefault",
+      "aria-expanded": "false",
+      "aria-label": "Toggle navigation",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 15
+      },
+      __self: this
+    }, __jsx("span", {
+      className: "navbar-toggler-icon",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 24
+      },
+      __self: this
+    })), __jsx("div", {
+      className: "collapse navbar-collapse mr-3",
+      id: "navbarsExampleDefault",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 27
+      },
+      __self: this
+    }, __jsx("ul", {
+      className: "navbar-nav ml-auto",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 31
+      },
+      __self: this
+    }, __jsx("li", {
+      className: "nav-item active",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 32
+      },
+      __self: this
+    }, __jsx("a", {
+      className: "nav-link",
+      "data-scroll": true,
+      href: "#solutions",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 33
+      },
+      __self: this
+    }, "Soluciones")), __jsx("li", {
+      className: "nav-item active",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 37
+      },
+      __self: this
+    }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_0___default.a, {
+      onClick: this.handleHome,
+      href: "/",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 38
+      },
+      __self: this
+    }, __jsx("a", {
+      className: "nav-link",
+      "data-scroll": true,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 39
+      },
+      __self: this
+    }, "Home"))), __jsx("li", {
+      className: "nav-item",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 44
+      },
+      __self: this
+    }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_0___default.a, {
+      className: "",
+      onClick: this.handleContact,
+      href: "/contact",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 45
+      },
+      __self: this
+    }, __jsx("a", {
+      className: "contacButtom nav-link",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 46
+      },
+      __self: this
+    }, "Contact us")))))));
   }
 
 }
@@ -2090,74 +2186,71 @@ class Navbar extends react__WEBPACK_IMPORTED_MODULE_1___default.a.Component {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! semantic-ui-react */ "semantic-ui-react");
+/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__);
 var _jsxFileName = "/home/beleno/Desktop/Proyectos/Personales/Reportgg/report/src/components/SummonerForm.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+const servers = [{
+  key: 'LAN',
+  text: 'LAN',
+  value: 'LAN'
+}, {
+  key: 'LAS',
+  text: 'LAS',
+  value: 'LAS'
+}, {
+  key: 'NA',
+  text: 'NA',
+  value: 'NA'
+}];
 
 class SummonerForm extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
+  constructor(...args) {
+    super(...args);
+
+    _defineProperty(this, "handleChange", (e, {
+      value
+    }) => this.setState({
+      region: value
+    }));
+
+    _defineProperty(this, "state", {
+      region: 'LAN'
+    });
+  }
+
   render() {
     return __jsx("form", {
       onSubmit: this.props.onSubmit,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 8
+        lineNumber: 31
       },
       __self: this
     }, __jsx("div", {
       className: "input-group mb-3",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 9
+        lineNumber: 32
       },
       __self: this
-    }, __jsx("div", {
-      class: "input-group-prepend",
+    }, __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_1__["Dropdown"], {
+      placeholder: "Selecciona Regi\xF3n",
+      selection: true,
+      value: this.state.region,
+      options: servers,
+      onChange: this.handleChange,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 10
+        lineNumber: 33
       },
       __self: this
-    }, __jsx("button", {
-      class: "btn btn-primary dropdown-toggle",
-      type: "button",
-      "data-toggle": "dropdown",
-      SummonerForm: true,
-      "aria-haspopup": "true",
-      "aria-expanded": "false",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 11
-      },
-      __self: this
-    }, "LAN"), __jsx("div", {
-      class: "dropdown-menu",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 20
-      },
-      __self: this
-    }, __jsx("p", {
-      class: "dropdown-item",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 21
-      },
-      __self: this
-    }, "LAN"), __jsx("p", {
-      class: "dropdown-item",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 24
-      },
-      __self: this
-    }, "LAS"), __jsx("p", {
-      class: "dropdown-item",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 27
-      },
-      __self: this
-    }, "KR"))), __jsx("input", {
+    }), __jsx("input", {
       placeholder: "Type your summoner name",
       type: "text",
       className: "form-control",
@@ -2165,40 +2258,39 @@ class SummonerForm extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Componen
       id: "summoner",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 32
+        lineNumber: 40
+      },
+      __self: this
+    }), __jsx("input", {
+      type: "text",
+      id: "region",
+      name: "region",
+      value: this.state.region,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 47
       },
       __self: this
     }), __jsx("div", {
       className: "input-group-prepend",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 39
+        lineNumber: 48
       },
       __self: this
     }, __jsx("button", {
       className: "btn btn-primary",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 40
+        lineNumber: 49
       },
       __self: this
-    }, "Search"))));
+    }, "Buscar"))));
   }
 
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (SummonerForm);
-
-/***/ }),
-
-/***/ "./src/images/poro.png":
-/*!*****************************!*\
-  !*** ./src/images/poro.png ***!
-  \*****************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/_next/static/images/poro-300d6bb743821d1955fc505a89084ee2.png";
 
 /***/ }),
 
@@ -2214,9 +2306,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Home; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_Navbar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Navbar */ "./src/components/Navbar.js");
-/* harmony import */ var _images_poro_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../images/poro.png */ "./src/images/poro.png");
-/* harmony import */ var _images_poro_png__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_images_poro_png__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/router */ "next/router");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _components_Navbar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Navbar */ "./src/components/Navbar.js");
 /* harmony import */ var _components_SummonerForm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/SummonerForm */ "./src/components/SummonerForm.js");
 var _jsxFileName = "/home/beleno/Desktop/Proyectos/Personales/Reportgg/report/src/pages/index.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
@@ -2233,21 +2325,27 @@ class Home extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
   handleSubmit(e) {
     e.preventDefault();
     var summonerName = e.target.summoner.value;
-    console.log(summonerName);
-    this.props.history.push(`/summoner/${summonerName}`);
+    var region = e.target.region.value;
+    next_router__WEBPACK_IMPORTED_MODULE_1___default.a.push({
+      pathname: '/summoner',
+      query: {
+        summonerName: `${summonerName}`,
+        region: `${region}`
+      }
+    });
   }
 
   render() {
     return __jsx("div", {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 25
+        lineNumber: 23
       },
       __self: this
-    }, __jsx(_components_Navbar__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    }, __jsx(_components_Navbar__WEBPACK_IMPORTED_MODULE_2__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 26
+        lineNumber: 24
       },
       __self: this
     }), __jsx("div", {
@@ -2255,18 +2353,32 @@ class Home extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       tyle: "height: 100px;",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 28
+        lineNumber: 26
       },
       __self: this
     }, __jsx("div", {
       className: "row ",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 29
+        lineNumber: 27
       },
       __self: this
     }, __jsx("div", {
       className: "col-md-6 col-sm-6 mb-5",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 28
+      },
+      __self: this
+    }, __jsx("div", {
+      class: "jumbotron jumbotron-fluid",
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 29
+      },
+      __self: this
+    }, __jsx("div", {
+      class: "container",
       __source: {
         fileName: _jsxFileName,
         lineNumber: 30
@@ -2285,91 +2397,21 @@ class Home extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
         lineNumber: 32
       },
       __self: this
-    }, "Obt\xE9n asistencia, est\xE1distica & mucho m\xE1s "), __jsx(_components_SummonerForm__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    }, "Escala con cada juego "), __jsx(_components_SummonerForm__WEBPACK_IMPORTED_MODULE_3__["default"], {
       onSubmit: this.handleSubmit.bind(this),
       __source: {
         fileName: _jsxFileName,
         lineNumber: 33
       },
       __self: this
-    }))))), __jsx("div", {
-      className: "info",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 40
-      },
-      __self: this
-    }, __jsx("div", {
-      className: "container inforcontainer",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 41
-      },
-      __self: this
-    }, __jsx("div", {
-      className: "row",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 42
-      },
-      __self: this
-    }, __jsx("div", {
-      className: "col-sm-6",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 43
-      },
-      __self: this
-    }, __jsx("img", {
-      src: _images_poro_png__WEBPACK_IMPORTED_MODULE_2___default.a,
-      className: "img-fluid",
-      alt: "Poro :D",
-      width: "560px",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 44
-      },
-      __self: this
-    })), __jsx("div", {
-      className: "col-sm-6 textInfo",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 51
-      },
-      __self: this
-    }, __jsx("h1", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 52
-      },
-      __self: this
-    }, "By LATAM, for LATAM "), __jsx("p", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 53
-      },
-      __self: this
-    }, "Report.gg is develod by", " ", __jsx("a", {
-      href: "http://sebasbeleno.herokuapp.com/",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 55
-      },
-      __self: this
-    }, "Sebastian Bele\xF1o"), ", LoL and coffee lover. This proyect is open source, you can wacht the full code in GitHub :D."), __jsx("p", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 62
-      },
-      __self: this
-    }, "If you wanna, you can donate to the proyect to implement new upgrades and new features :D."))))));
+    }))))))));
   }
 
 }
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /*!**********************************!*\
   !*** multi ./src/pages/index.js ***!
   \**********************************/
@@ -2378,6 +2420,17 @@ class Home extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
 
 module.exports = __webpack_require__(/*! /home/beleno/Desktop/Proyectos/Personales/Reportgg/report/src/pages/index.js */"./src/pages/index.js");
 
+
+/***/ }),
+
+/***/ "next/router":
+/*!******************************!*\
+  !*** external "next/router" ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("next/router");
 
 /***/ }),
 
@@ -2411,6 +2464,17 @@ module.exports = require("prop-types-exact");
 /***/ (function(module, exports) {
 
 module.exports = require("react");
+
+/***/ }),
+
+/***/ "semantic-ui-react":
+/*!************************************!*\
+  !*** external "semantic-ui-react" ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("semantic-ui-react");
 
 /***/ }),
 

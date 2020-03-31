@@ -2002,7 +2002,7 @@ exports.push([module.i, "\n\n.lds-grid {\n    margin-top: 70%;\n  display: inlin
 
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/next/node_modules/css-loader/dist/runtime/api.js */ "./node_modules/next/node_modules/css-loader/dist/runtime/api.js")(true);
 // Module
-exports.push([module.i, ".navbar{\n    background-color: #1D0D4B;\n    color: white\n\n}\n\nspan{\n    color: white;\n    font-size: 30px;\n}   ", "",{"version":3,"sources":["/home/beleno/Desktop/Proyectos/Personales/Reportgg/report/src/components/Styles/Navbar.css"],"names":[],"mappings":"AAAA;IACI,yBAAyB;IACzB;;AAEJ;;AAEA;IACI,YAAY;IACZ,eAAe;AACnB","file":"Navbar.css","sourcesContent":[".navbar{\n    background-color: #1D0D4B;\n    color: white\n\n}\n\nspan{\n    color: white;\n    font-size: 30px;\n}   "]}]);
+exports.push([module.i, ".nav-item a{\n    color: white !important;\n    font-family: 'Poppins', sans-serif !important;\n\n}\n\n.navbar-brand {\n    font-family: 'Poppins', sans-serif !important;\n    color: white !important;\n\n}", "",{"version":3,"sources":["/home/beleno/Desktop/Proyectos/Personales/Reportgg/report/src/components/Styles/Navbar.css"],"names":[],"mappings":"AAAA;IACI,uBAAuB;IACvB,6CAA6C;;AAEjD;;AAEA;IACI,6CAA6C;IAC7C,uBAAuB;;AAE3B","file":"Navbar.css","sourcesContent":[".nav-item a{\n    color: white !important;\n    font-family: 'Poppins', sans-serif !important;\n\n}\n\n.navbar-brand {\n    font-family: 'Poppins', sans-serif !important;\n    color: white !important;\n\n}"]}]);
 
 
 /***/ }),
@@ -2015,8 +2015,11 @@ exports.push([module.i, ".navbar{\n    background-color: #1D0D4B;\n    color: wh
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/next/node_modules/css-loader/dist/runtime/api.js */ "./node_modules/next/node_modules/css-loader/dist/runtime/api.js")(true);
+// Imports
+
+exports.push([module.i, "@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto&display=swap);"]);
 // Module
-exports.push([module.i, "body{\n    height: 100vh;\n}", "",{"version":3,"sources":["/home/beleno/Desktop/Proyectos/Personales/Reportgg/report/src/pages/styles/Global.css"],"names":[],"mappings":"AAAA;IACI,aAAa;AACjB","file":"Global.css","sourcesContent":["body{\n    height: 100vh;\n}"]}]);
+exports.push([module.i, "h1, h2, h3, h4, h5, h6 {\n    font-family: 'Poppins', sans-serif;\n}\n\n*{\n    font-family: 'Roboto', sans-serif;\n}\n\nbody{\n    height: 100vh;\n}", "",{"version":3,"sources":["/home/beleno/Desktop/Proyectos/Personales/Reportgg/report/src/pages/styles/Global.css"],"names":[],"mappings":"AAEA;IACI,kCAAkC;AACtC;;AAEA;IACI,iCAAiC;AACrC;;AAEA;IACI,aAAa;AACjB","file":"Global.css","sourcesContent":["@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto&display=swap');\n\nh1, h2, h3, h4, h5, h6 {\n    font-family: 'Poppins', sans-serif;\n}\n\n*{\n    font-family: 'Roboto', sans-serif;\n}\n\nbody{\n    height: 100vh;\n}"]}]);
 
 
 /***/ }),
@@ -2032,10 +2035,9 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/next/no
 // Imports
 var ___CSS_LOADER_GET_URL_IMPORT___ = __webpack_require__(/*! ../../../node_modules/next/node_modules/css-loader/dist/runtime/getUrl.js */ "./node_modules/next/node_modules/css-loader/dist/runtime/getUrl.js");
 var ___CSS_LOADER_URL_PURE_IMPORT_0___ = __webpack_require__(/*! ../../images/Bg.png */ "./src/images/Bg.png");
-exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Khand:400,700&display=swap);"]);
 var ___CSS_LOADER_URL_IMPORT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_PURE_IMPORT_0___);
 // Module
-exports.push([module.i, "body{\n    background-image: url(" + ___CSS_LOADER_URL_IMPORT_0___ + ");\n    background-size: cover;\n    background-repeat: no-repeat;\n    font-family: Khand;\n    color: white;\n}\nh1{\n    font-weight: 700 !important;\n}\n\n.title{\n    padding-top: 50%;\n}\n\n.info{\n    background: #6441A5;  /* fallback for old browsers */  /* Chrome 10-25, Safari 5.1-6 */\n    background: linear-gradient(to right, #2a0845, #6441A5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */\n    height: 100vh;\n    border-radius: 30px 30px 0px 0px;\n}\n\n.inforcontainer{\n    padding-top: 7%;\n}\n\n.textInfo p{\n    font-size: 30px;\n}\n\n.textInfo a{\n    color: white;\n    text-decoration: none;\n    font-weight: 700 !important;\n}\n\n.btn-primary {\n    background-color: #4B23B4 !important;\n}", "",{"version":3,"sources":["/home/beleno/Desktop/Proyectos/Personales/Reportgg/report/src/pages/styles/Home.css"],"names":[],"mappings":"AAEA;IACI,oDAA4C;IAC5C,sBAAsB;IACtB,4BAA4B;IAC5B,kBAAkB;IAClB,YAAY;AAChB;AACA;IACI,2BAA2B;AAC/B;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,mBAAmB,GAAG,8BAA8B,GACe,+BAA+B;IAClG,uDAAuD,EAAE,qEAAqE;IAC9H,aAAa;IACb,gCAAgC;AACpC;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,YAAY;IACZ,qBAAqB;IACrB,2BAA2B;AAC/B;;AAEA;IACI,oCAAoC;AACxC","file":"Home.css","sourcesContent":["@import url('https://fonts.googleapis.com/css?family=Khand:400,700&display=swap');\n\nbody{\n    background-image: url('../../images/Bg.png');\n    background-size: cover;\n    background-repeat: no-repeat;\n    font-family: Khand;\n    color: white;\n}\nh1{\n    font-weight: 700 !important;\n}\n\n.title{\n    padding-top: 50%;\n}\n\n.info{\n    background: #6441A5;  /* fallback for old browsers */\n    background: -webkit-linear-gradient(to right, #2a0845, #6441A5,);  /* Chrome 10-25, Safari 5.1-6 */\n    background: linear-gradient(to right, #2a0845, #6441A5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */\n    height: 100vh;\n    border-radius: 30px 30px 0px 0px;\n}\n\n.inforcontainer{\n    padding-top: 7%;\n}\n\n.textInfo p{\n    font-size: 30px;\n}\n\n.textInfo a{\n    color: white;\n    text-decoration: none;\n    font-weight: 700 !important;\n}\n\n.btn-primary {\n    background-color: #4B23B4 !important;\n}"]}]);
+exports.push([module.i, "\nbody{\n    background-image: url(" + ___CSS_LOADER_URL_IMPORT_0___ + ");\n    background-size: cover;\n    background-repeat: no-repeat;\n    font-family: Khand;\n    color: white;\n}\n\n\n.title h1{\n    font-weight: 700 !important;\n    font-size: 70px;\n}\n\n.title h1{\n    margin-bottom: 40px;\n}\n.jumbotron{\n    background-color: transparent !important;\n}\n\n.ui.selection.dropdown{\n    min-width: auto !important;\n    border-radius: 0;\n}\n\n#region{\n    display: none;\n}\n.bropdown, input, .btn-primary{\n    height: calc(1.5em + .75rem + 10px) !important;\n}\n\n.btn-primary {\n    background-color: #FF842A !important;\n    border-color: unset;\n}", "",{"version":3,"sources":["/home/beleno/Desktop/Proyectos/Personales/Reportgg/report/src/pages/styles/Home.css"],"names":[],"mappings":";AACA;IACI,oDAA4C;IAC5C,sBAAsB;IACtB,4BAA4B;IAC5B,kBAAkB;IAClB,YAAY;AAChB;;;AAGA;IACI,2BAA2B;IAC3B,eAAe;AACnB;;AAEA;IACI,mBAAmB;AACvB;AACA;IACI,wCAAwC;AAC5C;;AAEA;IACI,0BAA0B;IAC1B,gBAAgB;AACpB;;AAEA;IACI,aAAa;AACjB;AACA;IACI,8CAA8C;AAClD;;AAEA;IACI,oCAAoC;IACpC,mBAAmB;AACvB","file":"Home.css","sourcesContent":["\nbody{\n    background-image: url('../../images/Bg.png');\n    background-size: cover;\n    background-repeat: no-repeat;\n    font-family: Khand;\n    color: white;\n}\n\n\n.title h1{\n    font-weight: 700 !important;\n    font-size: 70px;\n}\n\n.title h1{\n    margin-bottom: 40px;\n}\n.jumbotron{\n    background-color: transparent !important;\n}\n\n.ui.selection.dropdown{\n    min-width: auto !important;\n    border-radius: 0;\n}\n\n#region{\n    display: none;\n}\n.bropdown, input, .btn-primary{\n    height: calc(1.5em + .75rem + 10px) !important;\n}\n\n.btn-primary {\n    background-color: #FF842A !important;\n    border-color: unset;\n}"]}]);
 
 
 /***/ }),
@@ -3084,7 +3086,7 @@ if (true) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "static/media/Bg.0cc134c849f4945fa8efe34909e96f59.png";
+module.exports = __webpack_require__.p + "static/media/Bg.3bd08b544b79133d313599a667b88c7b.png";
 
 /***/ }),
 
@@ -3157,11 +3159,17 @@ class MyApp extends next_app__WEBPACK_IMPORTED_MODULE_1___default.a {
         lineNumber: 28
       },
       __self: this
-    }, "// TODO: Add metatags"), __jsx(Component, Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, pageProps, {
+    }, __jsx("title", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 30
+      },
+      __self: this
+    }, "Report.gg")), __jsx(Component, Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, pageProps, {
       key: router.route,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 34
+        lineNumber: 35
       },
       __self: this
     })));

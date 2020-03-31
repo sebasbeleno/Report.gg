@@ -496,11 +496,17 @@ class MyApp extends next_app__WEBPACK_IMPORTED_MODULE_0___default.a {
         lineNumber: 28
       },
       __self: this
-    }, "// TODO: Add metatags"), __jsx(Component, _extends({}, pageProps, {
+    }, __jsx("title", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 30
+      },
+      __self: this
+    }, "Report.gg")), __jsx(Component, _extends({}, pageProps, {
       key: router.route,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 34
+        lineNumber: 35
       },
       __self: this
     })));

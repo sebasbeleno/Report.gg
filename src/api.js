@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:5050"
+const BASE_URL = "http://localhost:5000"
 
 
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
@@ -26,8 +26,8 @@ async function callApi(endpoint, options = {}) {
 
 const api = {
     summoner:{
-        general(summonerName){
-            return callApi(`/summoner?summoner=${summonerName}`);
+        general(region, summonerName){
+            return callApi(`/summoner/${region}/${summonerName}`);
         }
     }
 }

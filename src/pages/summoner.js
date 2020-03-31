@@ -3,7 +3,11 @@ import React, { Component } from "react";
 import Navbar from "../components/Navbar";
 import PageLoading from '../components/PageLoading';
 import api from "../api";
-export default class Home extends Component {
+export default   class Home extends Component {
+
+  static getInitialProps({query}) {
+    return {query}
+  }
 
   state = {
       loading: true,
@@ -12,7 +16,6 @@ export default class Home extends Component {
       summonerIcon: null
   }
   componentDidMount() {
-    console.log(this.props.match.params.summonerName)
     this.fetchData()
   }
 
@@ -20,13 +23,9 @@ export default class Home extends Component {
     this.setState({loading: true, error: null})
 
     try{
-        console.log("Data.")
-        const data = await api.summoner.general(this.props.match.params.summonerName)
-        console.log("No se")
-        console.log(data)
-        this.setState({loading: false, summoner: data, summonerIcon: `http://avatar.leagueoflegends.com/lan/${data.summonerName}.png`}) 
+        const data = await api.summoner.general(this.props.query.region, this.props.query.summonerName)
+        this.setState({loading: false, summoner: data,})
     } catch (err){
-        console.log(err)
         this.setState({loading: false, error: err})
     }
   }
@@ -37,6 +36,12 @@ export default class Home extends Component {
        return <PageLoading />
     }
 
+    if(this.state.error){
+      return(
+        <h1>INTERNAL SERVER ERROR</h1>
+      )
+    }
+
     return (
       <div>
         <Navbar />
@@ -45,11 +50,11 @@ export default class Home extends Component {
           <div className="container inforcontainer">
             <div className="row">
               <div className="col-sm-6">
-                <img src={this.state.summonerIcon} alt={this.state.summoner.name}/>
+                <img src={this.state.summoner.iconUrl} alt={this.state.summoner.name}/>
               </div>
               <div className="col-sm-6 textInfo">
                   <h1>{this.state.summoner.name}</h1>
-                  <p>Level: <strong>{this.state.summoner.summonerLevel}</strong></p>
+                  <p>Level: <strong>{this.state.summoner.level}</strong></p>
               </div>
             </div>
           </div>

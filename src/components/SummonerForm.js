@@ -1,34 +1,42 @@
 import React from "react";
+import { Dropdown } from 'semantic-ui-react'
+
+const servers = [
+  {
+    key: 'LAN',
+    text: 'LAN',
+    value: 'LAN'
+  },
+  {
+    key: 'LAS',
+    text: 'LAS',
+    value: 'LAS'
+  },{
+    key: 'NA',
+    text: 'NA',
+    value: 'NA'
+  },
+]
 
 class SummonerForm extends React.Component {
 
+  handleChange = (e, { value }) => this.setState({ region:value })
+
+  state = {
+    region: 'LAN',
+  }
 
   render() {
     return (
       <form onSubmit={this.props.onSubmit}>
         <div className="input-group mb-3">
-          <div class="input-group-prepend">
-            <button
-              class="btn btn-primary dropdown-toggle"
-              type="button"
-              data-toggle="dropdown"
-              SummonerForm         aria-haspopup="true"
-              aria-expanded="false"
-            >
-              LAN
-            </button>
-            <div class="dropdown-menu">
-              <p class="dropdown-item" >
-                LAN
-              </p>
-              <p class="dropdown-item" >
-                LAS
-              </p>
-              <p class="dropdown-item" >
-                KR
-              </p>
-            </div>
-          </div>
+          <Dropdown
+            placeholder="Selecciona Región"
+            selection
+            value={this.state.region}
+            options={servers}
+            onChange={this.handleChange}
+          />
           <input
             placeholder="Type your summoner name"
             type="text"
@@ -36,8 +44,9 @@ class SummonerForm extends React.Component {
             name="summoner"
             id="summoner"
           />
+          <input type="text" id="region" name="region" value={this.state.region}/>
           <div className="input-group-prepend">
-            <button className="btn btn-primary">Search</button>
+            <button className="btn btn-primary">Buscar</button>
           </div>
         </div>
       </form>

@@ -27,7 +27,8 @@ export default class MyApp extends App {
         <>
             <Head>
 
-                // TODO: Add metatags
+              <title>Report.gg</title>
+
 
             </Head>
 
