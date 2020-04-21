@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -2033,7 +2033,7 @@ if (false) {} else {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-const BASE_URL = "http://localhost:5000";
+const BASE_URL = "https://reportggapi.rj.r.appspot.com";
 
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -2056,7 +2056,7 @@ async function callApi(endpoint, options = {}) {
 const api = {
   summoner: {
     general(region, summonerName) {
-      return callApi(`/summoner/${region}/${summonerName}`);
+      return callApi(`/summoner?region=${region}&summoner_name=${summonerName}`);
     }
 
   }
@@ -2077,7 +2077,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Loader; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-var _jsxFileName = "/home/beleno/Desktop/Proyectos/Personales/Reportgg/report/src/components/Loader.js";
+var _jsxFileName = "/home/beleno/Desktop/Proyectos/Personales/Report.gg/src/components/Loader.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 class Loader extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
@@ -2192,7 +2192,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-var _jsxFileName = "/home/beleno/Desktop/Proyectos/Personales/Reportgg/report/src/components/Navbar.js";
+var _jsxFileName = "/home/beleno/Desktop/Proyectos/Personales/Report.gg/src/components/Navbar.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 
@@ -2342,7 +2342,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Loader__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Loader */ "./src/components/Loader.js");
 /* harmony import */ var _components_Navbar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Navbar */ "./src/components/Navbar.js");
-var _jsxFileName = "/home/beleno/Desktop/Proyectos/Personales/Reportgg/report/src/components/PageLoading.js";
+var _jsxFileName = "/home/beleno/Desktop/Proyectos/Personales/Report.gg/src/components/PageLoading.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -2390,7 +2390,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Navbar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Navbar */ "./src/components/Navbar.js");
 /* harmony import */ var _components_PageLoading__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/PageLoading */ "./src/components/PageLoading.js");
 /* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../api */ "./src/api.js");
-var _jsxFileName = "/home/beleno/Desktop/Proyectos/Personales/Reportgg/report/src/pages/summoner.js";
+var _jsxFileName = "/home/beleno/Desktop/Proyectos/Personales/Report.gg/src/pages/summoner.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -2544,14 +2544,14 @@ class Home extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
 
 /***/ }),
 
-/***/ 5:
+/***/ 4:
 /*!*************************************!*\
   !*** multi ./src/pages/summoner.js ***!
   \*************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/beleno/Desktop/Proyectos/Personales/Reportgg/report/src/pages/summoner.js */"./src/pages/summoner.js");
+module.exports = __webpack_require__(/*! /home/beleno/Desktop/Proyectos/Personales/Report.gg/src/pages/summoner.js */"./src/pages/summoner.js");
 
 
 /***/ }),

@@ -161,10 +161,10 @@ var assign=Object.assign.bind(Object);function g(){return assign;}Object.defineP
 
 /***/ }),
 
-/***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fsummoner&absolutePagePath=%2Fhome%2Fbeleno%2FDesktop%2FProyectos%2FPersonales%2FReportgg%2Freport%2Fsrc%2Fpages%2Fsummoner.js!./":
-/*!************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fsummoner&absolutePagePath=%2Fhome%2Fbeleno%2FDesktop%2FProyectos%2FPersonales%2FReportgg%2Freport%2Fsrc%2Fpages%2Fsummoner.js ***!
-  \************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fsummoner&absolutePagePath=%2Fhome%2Fbeleno%2FDesktop%2FProyectos%2FPersonales%2FReport.gg%2Fsrc%2Fpages%2Fsummoner.js!./":
+/*!****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fsummoner&absolutePagePath=%2Fhome%2Fbeleno%2FDesktop%2FProyectos%2FPersonales%2FReport.gg%2Fsrc%2Fpages%2Fsummoner.js ***!
+  \****************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3359,7 +3359,7 @@ module.exports = (__webpack_require__(/*! dll-reference dll_fc15404a2a3821682b81
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-const BASE_URL = "http://localhost:5000";
+const BASE_URL = "https://reportggapi.rj.r.appspot.com";
 
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -3382,7 +3382,7 @@ async function callApi(endpoint, options = {}) {
 const api = {
   summoner: {
     general(region, summonerName) {
-      return callApi("/summoner/".concat(region, "/").concat(summonerName));
+      return callApi("/summoner?region=".concat(region, "&summoner_name=").concat(summonerName));
     }
 
   }
@@ -3403,7 +3403,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Loader; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-var _jsxFileName = "/home/beleno/Desktop/Proyectos/Personales/Reportgg/report/src/components/Loader.js";
+var _jsxFileName = "/home/beleno/Desktop/Proyectos/Personales/Report.gg/src/components/Loader.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 class Loader extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
@@ -3518,7 +3518,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-var _jsxFileName = "/home/beleno/Desktop/Proyectos/Personales/Reportgg/report/src/components/Navbar.js";
+var _jsxFileName = "/home/beleno/Desktop/Proyectos/Personales/Report.gg/src/components/Navbar.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 
@@ -3668,7 +3668,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Loader__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Loader */ "./src/components/Loader.js");
 /* harmony import */ var _components_Navbar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Navbar */ "./src/components/Navbar.js");
-var _jsxFileName = "/home/beleno/Desktop/Proyectos/Personales/Reportgg/report/src/components/PageLoading.js";
+var _jsxFileName = "/home/beleno/Desktop/Proyectos/Personales/Report.gg/src/components/PageLoading.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -3718,7 +3718,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_PageLoading__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/PageLoading */ "./src/components/PageLoading.js");
 /* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../api */ "./src/api.js");
 
-var _jsxFileName = "/home/beleno/Desktop/Proyectos/Personales/Reportgg/report/src/pages/summoner.js";
+var _jsxFileName = "/home/beleno/Desktop/Proyectos/Personales/Report.gg/src/pages/summoner.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 
@@ -3869,14 +3869,14 @@ class Home extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
 
 /***/ }),
 
-/***/ 3:
-/*!****************************************************************************************************************************************************************************!*\
-  !*** multi next-client-pages-loader?page=%2Fsummoner&absolutePagePath=%2Fhome%2Fbeleno%2FDesktop%2FProyectos%2FPersonales%2FReportgg%2Freport%2Fsrc%2Fpages%2Fsummoner.js ***!
-  \****************************************************************************************************************************************************************************/
+/***/ 2:
+/*!********************************************************************************************************************************************************************!*\
+  !*** multi next-client-pages-loader?page=%2Fsummoner&absolutePagePath=%2Fhome%2Fbeleno%2FDesktop%2FProyectos%2FPersonales%2FReport.gg%2Fsrc%2Fpages%2Fsummoner.js ***!
+  \********************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Fsummoner&absolutePagePath=%2Fhome%2Fbeleno%2FDesktop%2FProyectos%2FPersonales%2FReportgg%2Freport%2Fsrc%2Fpages%2Fsummoner.js! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fsummoner&absolutePagePath=%2Fhome%2Fbeleno%2FDesktop%2FProyectos%2FPersonales%2FReportgg%2Freport%2Fsrc%2Fpages%2Fsummoner.js!./");
+module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Fsummoner&absolutePagePath=%2Fhome%2Fbeleno%2FDesktop%2FProyectos%2FPersonales%2FReport.gg%2Fsrc%2Fpages%2Fsummoner.js! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fsummoner&absolutePagePath=%2Fhome%2Fbeleno%2FDesktop%2FProyectos%2FPersonales%2FReport.gg%2Fsrc%2Fpages%2Fsummoner.js!./");
 
 
 /***/ }),
@@ -3892,5 +3892,5 @@ module.exports = dll_fc15404a2a3821682b81;
 
 /***/ })
 
-},[[3,"static/runtime/webpack.js"]]]);
+},[[2,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=summoner.js.map

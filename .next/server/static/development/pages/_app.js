@@ -452,7 +452,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_Home_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_styles_Home_css__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var _components_Styles_Loader_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/Styles/Loader.css */ "./src/components/Styles/Loader.css");
 /* harmony import */ var _components_Styles_Loader_css__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_components_Styles_Loader_css__WEBPACK_IMPORTED_MODULE_7__);
-var _jsxFileName = "/home/beleno/Desktop/Proyectos/Personales/Reportgg/report/src/pages/_app.js";
+var _jsxFileName = "/home/beleno/Desktop/Proyectos/Personales/Report.gg/src/pages/_app.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement;
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }

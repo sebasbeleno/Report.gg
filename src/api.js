@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:5000"
+const BASE_URL = "https://reportggapi.rj.r.appspot.com"
 
 
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
@@ -27,7 +27,7 @@ async function callApi(endpoint, options = {}) {
 const api = {
     summoner:{
         general(region, summonerName){
-            return callApi(`/summoner/${region}/${summonerName}`);
+            return callApi(`/summoner?region=${region}&summoner_name=${summonerName}`);
         }
     }
 }
