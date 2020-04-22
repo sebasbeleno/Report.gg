@@ -49,6 +49,10 @@ const React = __importStar(__webpack_require__(/*! react */ "./node_modules/reac
 
 exports.AmpStateContext = React.createContext({});
 
+if (true) {
+  exports.AmpStateContext.displayName = 'AmpStateContext';
+}
+
 /***/ }),
 
 /***/ "./node_modules/next/dist/next-server/lib/amp.js":
@@ -119,6 +123,10 @@ Object.defineProperty(exports, "__esModule", {
 const React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
 exports.HeadManagerContext = React.createContext(null);
+
+if (true) {
+  exports.HeadManagerContext.displayName = 'HeadManagerContext';
+}
 
 /***/ }),
 
@@ -493,23 +501,23 @@ module.exports = _interopRequireDefault;
 
 /***/ "./node_modules/react/index.js":
 /*!*******************************************************************************************!*\
-  !*** delegated ./node_modules/react/index.js from dll-reference dll_fc15404a2a3821682b81 ***!
+  !*** delegated ./node_modules/react/index.js from dll-reference dll_2adc2403d89adc16ead0 ***!
   \*******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(/*! dll-reference dll_fc15404a2a3821682b81 */ "dll-reference dll_fc15404a2a3821682b81"))("./node_modules/react/index.js");
+module.exports = (__webpack_require__(/*! dll-reference dll_2adc2403d89adc16ead0 */ "dll-reference dll_2adc2403d89adc16ead0"))("./node_modules/react/index.js");
 
 /***/ }),
 
-/***/ "dll-reference dll_fc15404a2a3821682b81":
+/***/ "dll-reference dll_2adc2403d89adc16ead0":
 /*!*******************************************!*\
-  !*** external "dll_fc15404a2a3821682b81" ***!
+  !*** external "dll_2adc2403d89adc16ead0" ***!
   \*******************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = dll_fc15404a2a3821682b81;
+module.exports = dll_2adc2403d89adc16ead0;
 
 /***/ })
 

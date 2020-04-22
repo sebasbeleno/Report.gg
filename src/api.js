@@ -3,7 +3,7 @@ const BASE_URL = "https://reportggapi.rj.r.appspot.com"
 
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 const randomNumber = (min = 0, max = 1) =>
-  Math.floor(Math.random() * (max - min + 1)) + min;
+Math.floor(Math.random() * (max - min + 1)) + min;
 const simulateNetworkLatency = (min = 30, max = 1500) =>
   delay(randomNumber(min, max));
 
@@ -16,7 +16,10 @@ async function callApi(endpoint, options = {}) {
       };
 
 
-    const url = BASE_URL + endpoint;
+    let url = BASE_URL + endpoint;
+
+    url = encodeURI(url)
+
     const response = await fetch(url, options);
     const data = await response.json()
 
@@ -27,6 +30,7 @@ async function callApi(endpoint, options = {}) {
 const api = {
     summoner:{
         general(region, summonerName){
+            console.log(summonerName)
             return callApi(`/summoner?region=${region}&summoner_name=${summonerName}`);
         }
     }

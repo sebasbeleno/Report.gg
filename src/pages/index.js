@@ -15,7 +15,9 @@ export default class Home extends Component {
     var summonerName = e.target.summoner.value;
     var region = e.target.region.value
 
-    Router.push({pathname: '/summoner', query:{summonerName: `${summonerName}`, region: `${region}`}})
+    region = region.toLocaleLowerCase()
+
+    Router.push({pathname: `/summoner/${region}/${summonerName}`})
   }
 
   render() {
@@ -26,8 +28,8 @@ export default class Home extends Component {
         <div className="container " tyle="height: 100px;">
           <div className="row ">
             <div className="col-md-6 col-sm-6 mb-5">
-              <div class="jumbotron jumbotron-fluid">
-                <div class="container">
+              <div className="jumbotron jumbotron-fluid">
+                <div className="container">
                   <div className="title">
                     <h1>Escala con cada juego </h1>
                     <SummonerForm onSubmit={this.handleSubmit.bind(this)} />

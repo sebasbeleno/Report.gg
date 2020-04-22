@@ -34,18 +34,6 @@ export default class Navbar extends React.Component {
                   Soluciones
                 </a>
               </li>
-              <li className="nav-item active">
-                <Link onClick={this.handleHome} href="/">
-                  <a className="nav-link" data-scroll>
-                    Home
-                  </a>
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="" onClick={this.handleContact} href="/contact">
-                  <a className="contacButtom nav-link">Contact us</a>
-                </Link>
-              </li>
             </ul>
           </div>
         </nav>
