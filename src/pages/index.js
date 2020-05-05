@@ -4,6 +4,10 @@ import Router from 'next/router'
 import Navbar from "../components/Navbar";
 import SummonerForm from "../components/SummonerForm";
 
+import Lux from '../images/lux.png'
+import Lee from '../images/lee.png'
+import Discord from '../images/discord.png'
+
 export default class Home extends Component {
   constructor(props) {
     super(props);
@@ -25,20 +29,39 @@ export default class Home extends Component {
       <div>
         <Navbar />
 
-        <div className="container " tyle="height: 100px;">
-          <div className="row ">
-            <div className="col-md-6 col-sm-6 mb-5">
-              <div className="jumbotron jumbotron-fluid">
-                <div className="container">
-                  <div className="title">
-                    <h1>Escala con cada juego </h1>
-                    <SummonerForm onSubmit={this.handleSubmit.bind(this)} />
-                  </div>
-                </div>
+        <div className="landing">
+          <div  className="form">
+              <div className="title">
+                <h1>Escala con cada juego </h1>
+                <SummonerForm onSubmit={this.handleSubmit.bind(this)} />
               </div>
-            </div>
+          </div>
+          <div className="LuxImage">
+            <img src={Lux}></img>
           </div>
         </div>
+
+        <section className="section2">
+          <div className="text">
+            <div className="section2Text">
+              <h1>Report.gg donde quieras.</h1>
+              <p>Lorem ipsum dolor sit amet, consectetur
+adipiscing elit. Morbi maximus erat lectus, quis
+fringilla neque tempor ac. Maecenas sit amet ex
+volutpat, aliquam tortor id, sodales massa.</p>
+
+              <div className="externalIcons">
+                <img src={Discord}></img>
+              </div>
+
+            </div>
+          </div>
+          <div className="LeeImage">
+            <img src={Lee}></img>
+          </div>
+        </section>
+
+        
       </div>
     );
   }

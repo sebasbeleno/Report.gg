@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -744,6 +744,8 @@ function delBasePath(path) {
   return path.indexOf(basePath) === 0 ? path.substr(basePath.length) || '/' : path;
 }
 
+exports.delBasePath = delBasePath;
+
 function toRoute(path) {
   return path.replace(/\/$/, '') || '/';
 }
@@ -755,8 +757,8 @@ function fetchNextData(pathname, query, isServerRender, cb) {
 
   function getResponse() {
     return fetch(utils_1.formatWithValidation({
-      // @ts-ignore __NEXT_DATA__
-      pathname: `/_next/data/${__NEXT_DATA__.buildId}${pathname}.json`,
+      pathname: addBasePath( // @ts-ignore __NEXT_DATA__
+      `/_next/data/${__NEXT_DATA__.buildId}${delBasePath(pathname)}.json`),
       query
     }), {
       // Cookies are required to be present for Next.js' SSG "Preview Mode".
@@ -1501,11 +1503,16 @@ exports.getRouteMatcher = getRouteMatcher;
 
 Object.defineProperty(exports, "__esModule", {
   value: true
-});
+}); // this isn't importing the escape-string-regex module
+// to reduce bytes
+
+function escapeRegex(str) {
+  return str.replace(/[|\\{}()[\]^$+*?.-]/g, '\\$&');
+}
 
 function getRouteRegex(normalizedRoute) {
   // Escape all characters that could be considered RegEx
-  const escapedRoute = (normalizedRoute.replace(/\/$/, '') || '/').replace(/[|\\{}()[\]^$+*?.-]/g, '\\$&');
+  const escapedRoute = escapeRegex(normalizedRoute.replace(/\/$/, '') || '/');
   const groups = {};
   let groupIndex = 1;
   const parameterizedRoute = escapedRoute.replace(/\/\\\[([^/]+?)\\\](?=\/|$)/g, (_, $1) => {
@@ -1518,10 +1525,24 @@ function getRouteRegex(normalizedRoute) {
     };
     return isCatchAll ? '/(.+?)' : '/([^/]+?)';
   });
-  return {
+  let namedParameterizedRoute; // dead code eliminate for browser since it's only needed
+  // while generating routes-manifest
+
+  if (true) {
+    namedParameterizedRoute = escapedRoute.replace(/\/\\\[([^/]+?)\\\](?=\/|$)/g, (_, $1) => {
+      const isCatchAll = /^(\\\.){3}/.test($1);
+      const key = $1 // Un-escape key
+      .replace(/\\([|\\{}()[\]^$+*?.-])/g, '$1').replace(/^\.{3}/, '');
+      return isCatchAll ? `/(?<${escapeRegex(key)}>.+?)` : `/(?<${escapeRegex(key)}>[^/]+?)`;
+    });
+  }
+
+  return Object.assign({
     re: new RegExp('^' + parameterizedRoute + '(?:/)?$', 'i'),
     groups
-  };
+  }, namedParameterizedRoute ? {
+    namedRegex: `^${namedParameterizedRoute}(?:/)?$`
+  } : {});
 }
 
 exports.getRouteRegex = getRouteRegex;
@@ -2102,97 +2123,357 @@ class Loader extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
   render() {
     return __jsx("div", {
       className: "container",
+      __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 7
-      },
-      __self: this
+        lineNumber: 7,
+        columnNumber: 7
+      }
     }, __jsx("div", {
       className: "row h-100",
+      __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 8
-      },
-      __self: this
+        lineNumber: 8,
+        columnNumber: 9
+      }
     }, __jsx("div", {
       className: "col-sm-12 my-auto",
+      __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 9
-      },
-      __self: this
+        lineNumber: 9,
+        columnNumber: 11
+      }
     }, __jsx("div", {
       className: "w-25 mx-auto",
+      __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 10
-      },
-      __self: this
+        lineNumber: 10,
+        columnNumber: 13
+      }
     }, __jsx("div", {
       className: "lds-grid",
+      __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 11
-      },
-      __self: this
+        lineNumber: 11,
+        columnNumber: 15
+      }
     }, __jsx("div", {
+      __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 12
-      },
-      __self: this
+        lineNumber: 12,
+        columnNumber: 17
+      }
     }), __jsx("div", {
+      __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 13
-      },
-      __self: this
+        lineNumber: 13,
+        columnNumber: 17
+      }
     }), __jsx("div", {
+      __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 14
-      },
-      __self: this
+        lineNumber: 14,
+        columnNumber: 17
+      }
     }), __jsx("div", {
+      __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 15
-      },
-      __self: this
+        lineNumber: 15,
+        columnNumber: 17
+      }
     }), __jsx("div", {
+      __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 16
-      },
-      __self: this
+        lineNumber: 16,
+        columnNumber: 17
+      }
     }), __jsx("div", {
+      __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 17
-      },
-      __self: this
+        lineNumber: 17,
+        columnNumber: 17
+      }
     }), __jsx("div", {
+      __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 18
-      },
-      __self: this
+        lineNumber: 18,
+        columnNumber: 17
+      }
     }), __jsx("div", {
+      __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 19
-      },
-      __self: this
+        lineNumber: 19,
+        columnNumber: 17
+      }
     }), __jsx("div", {
+      __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 20
-      },
-      __self: this
+        lineNumber: 20,
+        columnNumber: 17
+      }
     }))))));
   }
 
 }
+
+/***/ }),
+
+/***/ "./src/components/MatchList.js":
+/*!*************************************!*\
+  !*** ./src/components/MatchList.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var _jsxFileName = "/home/beleno/Desktop/Proyectos/Personales/Report.gg/src/components/MatchList.js";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+class MatchItem extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
+  constructor(...args) {
+    super(...args);
+
+    _defineProperty(this, "state", {
+      winlose: "none",
+      items: {}
+    });
+  }
+
+  componentDidMount() {
+    if (this.props.match.win == "True") {
+      this.setState({
+        winlose: "win"
+      });
+    } else {
+      this.setState({
+        winlose: "lose"
+      });
+    }
+
+    this.props.match.items.pop();
+  }
+
+  render() {
+    return __jsx("div", {
+      className: ` matchItem ${this.state.winlose}`,
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 22,
+        columnNumber: 13
+      }
+    }, __jsx("div", {
+      className: "campeonJugado",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 23,
+        columnNumber: 17
+      }
+    }, __jsx("img", {
+      className: "campeonIcon",
+      src: this.props.match.campeon.image,
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 24,
+        columnNumber: 21
+      }
+    }), __jsx("h3", {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 25,
+        columnNumber: 21
+      }
+    }, this.props.match.campeon.nombre), __jsx("div", {
+      className: "habilidadesDeInvocador",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 26,
+        columnNumber: 21
+      }
+    }, __jsx("img", {
+      src: this.props.match.campeon.habilidades.habilidad_d.imagen,
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 27,
+        columnNumber: 25
+      }
+    }), __jsx("img", {
+      src: this.props.match.campeon.habilidades.habilidad_f.imagen,
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 28,
+        columnNumber: 25
+      }
+    }))), __jsx("div", {
+      className: "informacion",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 32,
+        columnNumber: 17
+      }
+    }, __jsx("div", {
+      className: "basico",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 33,
+        columnNumber: 21
+      }
+    }, __jsx("h5", {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 34,
+        columnNumber: 29
+      }
+    }, this.props.match.asesinatos, "/", this.props.match.muertes, "/", this.props.match.asistencias), __jsx("p", {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 35,
+        columnNumber: 29
+      }
+    }, "CS:", this.props.match.cs)), __jsx("div", {
+      className: "kda",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 37,
+        columnNumber: 21
+      }
+    }, __jsx("p", {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 38,
+        columnNumber: 25
+      }
+    }, "KDA: ", this.props.match.kda))), __jsx("div", {
+      className: "items",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 42,
+        columnNumber: 17
+      }
+    }, this.props.match.items.map(item => {
+      return __jsx("img", {
+        src: item.image,
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 45,
+          columnNumber: 29
+        }
+      });
+    })), __jsx("div", {
+      className: "equipos",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 50,
+        columnNumber: 17
+      }
+    }, __jsx("div", {
+      className: "equipoAzul",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 51,
+        columnNumber: 21
+      }
+    }, this.props.match.equipo_azul.map(participante => {
+      return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("p", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 55,
+          columnNumber: 37
+        }
+      }, participante.invocador), __jsx("img", {
+        src: participante.icono_campeon,
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 56,
+          columnNumber: 37
+        }
+      }));
+    })), __jsx("div", {
+      className: "equipoRojo",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 61,
+        columnNumber: 21
+      }
+    }, this.props.match.equipo_rojo.map(participante => {
+      return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("img", {
+        src: participante.icono_campeon,
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 65,
+          columnNumber: 37
+        }
+      }), __jsx("p", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 66,
+          columnNumber: 37
+        }
+      }, participante.invocador));
+    }))));
+  }
+
+}
+
+class MatchList extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
+  render() {
+    return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, this.props.MatchList.map(match => {
+      return __jsx(MatchItem, {
+        match: match,
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 84,
+          columnNumber: 25
+        }
+      });
+    }));
+  }
+
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (MatchList);
 
 /***/ }),
 
@@ -2217,32 +2498,36 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 class Navbar extends react__WEBPACK_IMPORTED_MODULE_1___default.a.Component {
   render() {
     return __jsx("header", {
+      __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 7
-      },
-      __self: this
+        lineNumber: 7,
+        columnNumber: 7
+      }
     }, __jsx("nav", {
       className: "navbar mr-auto navbar-expand-lg navbar-light bg-transparent",
+      __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 8
-      },
-      __self: this
+        lineNumber: 8,
+        columnNumber: 9
+      }
     }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_0___default.a, {
       href: "/",
+      __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 10
-      },
-      __self: this
+        lineNumber: 10,
+        columnNumber: 11
+      }
     }, __jsx("a", {
       className: "navbar-brand",
+      __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 11
-      },
-      __self: this
+        lineNumber: 11,
+        columnNumber: 13
+      }
     }, "Report.gg")), __jsx("button", {
       className: "navbar-toggler",
       type: "button",
@@ -2251,49 +2536,55 @@ class Navbar extends react__WEBPACK_IMPORTED_MODULE_1___default.a.Component {
       "aria-controls": "navbarsExampleDefault",
       "aria-expanded": "false",
       "aria-label": "Toggle navigation",
+      __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 15
-      },
-      __self: this
+        lineNumber: 15,
+        columnNumber: 11
+      }
     }, __jsx("span", {
       className: "navbar-toggler-icon",
+      __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 24
-      },
-      __self: this
+        lineNumber: 24,
+        columnNumber: 13
+      }
     })), __jsx("div", {
       className: "collapse navbar-collapse mr-3",
       id: "navbarsExampleDefault",
+      __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 27
-      },
-      __self: this
+        lineNumber: 27,
+        columnNumber: 11
+      }
     }, __jsx("ul", {
       className: "navbar-nav ml-auto",
+      __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 31
-      },
-      __self: this
+        lineNumber: 31,
+        columnNumber: 13
+      }
     }, __jsx("li", {
       className: "nav-item active",
+      __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 32
-      },
-      __self: this
+        lineNumber: 32,
+        columnNumber: 15
+      }
     }, __jsx("a", {
       className: "nav-link",
       "data-scroll": true,
       href: "#solutions",
+      __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 33
-      },
-      __self: this
+        lineNumber: 33,
+        columnNumber: 17
+      }
     }, "Soluciones"))))));
   }
 
@@ -2323,23 +2614,26 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 function PageLoading() {
   return __jsx("div", {
     className: "PageLoading",
+    __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 7
-    },
-    __self: this
+      lineNumber: 7,
+      columnNumber: 5
+    }
   }, __jsx(_components_Navbar__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 8
-    },
-    __self: this
+      lineNumber: 8,
+      columnNumber: 7
+    }
   }), __jsx(_Loader__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 9
-    },
-    __self: this
+      lineNumber: 9,
+      columnNumber: 7
+    }
   }));
 }
 
@@ -2359,15 +2653,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Home; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/router */ "next/router");
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _components_Navbar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../components/Navbar */ "./src/components/Navbar.js");
-/* harmony import */ var _components_PageLoading__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../components/PageLoading */ "./src/components/PageLoading.js");
-/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../api */ "./src/api.js");
+/* harmony import */ var _components_MatchList__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../components/MatchList */ "./src/components/MatchList.js");
+/* harmony import */ var react_chartjs_2__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-chartjs-2 */ "react-chartjs-2");
+/* harmony import */ var react_chartjs_2__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_chartjs_2__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _components_Navbar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../components/Navbar */ "./src/components/Navbar.js");
+/* harmony import */ var _components_PageLoading__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../components/PageLoading */ "./src/components/PageLoading.js");
+/* harmony import */ var _api__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../api */ "./src/api.js");
+/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! semantic-ui-react */ "semantic-ui-react");
+/* harmony import */ var semantic_ui_react__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__);
 var _jsxFileName = "/home/beleno/Desktop/Proyectos/Personales/Report.gg/src/pages/summoner/[region]/[summonerName].js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
 
 
 
@@ -2382,7 +2681,9 @@ class Home extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       loading: true,
       error: null,
       summoner: null,
-      summonerIcon: null
+      summonerIcon: null,
+      winRatio: null,
+      emblem: "../../../images/Emblem_Silver.png"
     });
 
     _defineProperty(this, "fetchData", async e => {
@@ -2392,10 +2693,28 @@ class Home extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
       });
 
       try {
-        const data = await _api__WEBPACK_IMPORTED_MODULE_4__["default"].summoner.general(this.props.query.region, this.props.query.summonerName);
+        const data = await _api__WEBPACK_IMPORTED_MODULE_5__["default"].summoner.general(this.props.query.region, this.props.query.summonerName);
+        let win_ratio = 0;
+        let lose_ratio = 0;
+        win_ratio = data.win_ratio;
+        lose_ratio = 100 - win_ratio;
+        console.log(win_ratio);
+        console.log(lose_ratio);
+        let winRate;
+        winRate = {
+          datasets: [{
+            data: [win_ratio, lose_ratio],
+            backgroundColor: ["#4ac036", "#f45247"]
+          }]
+        };
         this.setState({
-          loading: false,
+          winRatio: winRate
+        });
+        this.setState({
           summoner: data
+        });
+        this.setState({
+          loading: false
         });
       } catch (err) {
         this.setState({
@@ -2416,111 +2735,259 @@ class Home extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
 
   componentDidMount() {
     this.fetchData();
-    console.log(this.props.match);
   }
 
   render() {
     if (this.state.loading) {
-      return __jsx(_components_PageLoading__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      return __jsx(_components_PageLoading__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 38
-        },
-        __self: this
+          lineNumber: 75,
+          columnNumber: 14
+        }
       });
     }
 
     if (this.state.error) {
       return __jsx("h1", {
+        __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 43
-        },
-        __self: this
-      }, "INTERNAL SERVER ERROR");
+          lineNumber: 79,
+          columnNumber: 12
+        }
+      }, this.state.error, "}");
     }
 
+    const {
+      image
+    } = this.state;
     return __jsx("div", {
+      __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 48
-      },
-      __self: this
-    }, __jsx(_components_Navbar__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        lineNumber: 85,
+        columnNumber: 7
+      }
+    }, __jsx(_components_Navbar__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 49
-      },
-      __self: this
+        lineNumber: 86,
+        columnNumber: 9
+      }
     }), __jsx("div", {
-      className: "info",
+      className: "contenedor",
+      __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 51
-      },
-      __self: this
+        lineNumber: 87,
+        columnNumber: 9
+      }
     }, __jsx("div", {
-      className: "container inforcontainer",
+      className: "profileIcon",
+      __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 52
-      },
-      __self: this
+        lineNumber: 88,
+        columnNumber: 11
+      }
     }, __jsx("div", {
-      className: "row",
+      className: "item",
+      __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 53
-      },
-      __self: this
-    }, __jsx("div", {
-      className: "col-sm-6",
+        lineNumber: 89,
+        columnNumber: 13
+      }
+    }, __jsx("span", {
+      className: "notify-badge",
+      __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 54
-      },
-      __self: this
-    }, __jsx("img", {
+        lineNumber: 90,
+        columnNumber: 13
+      }
+    }, this.state.summoner.level), __jsx("img", {
       src: this.state.summoner.iconUrl,
       alt: this.state.summoner.name,
+      __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 55
-      },
-      __self: this
-    })), __jsx("div", {
-      className: "col-sm-6 textInfo",
+        lineNumber: 91,
+        columnNumber: 13
+      }
+    }))), __jsx("div", {
+      className: "summonerBasicInfo",
+      __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 57
-      },
-      __self: this
+        lineNumber: 97,
+        columnNumber: 11
+      }
     }, __jsx("h1", {
+      __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 58
-      },
-      __self: this
-    }, this.state.summoner.name), __jsx("p", {
+        lineNumber: 98,
+        columnNumber: 13
+      }
+    }, this.state.summoner.name), __jsx(semantic_ui_react__WEBPACK_IMPORTED_MODULE_6__["Button"], {
+      content: "Actualizar",
+      __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 59
-      },
-      __self: this
-    }, "Level: ", __jsx("strong", {
+        lineNumber: 99,
+        columnNumber: 13
+      }
+    })), __jsx("div", {
+      __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 59
-      },
-      __self: this
-    }, this.state.summoner.level)))))));
+        lineNumber: 102,
+        columnNumber: 11
+      }
+    }, __jsx(react_chartjs_2__WEBPACK_IMPORTED_MODULE_2__["Doughnut"], {
+      data: this.state.winRatio,
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 104,
+        columnNumber: 13
+      }
+    })), __jsx("div", {
+      className: "rankedInfo",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 107,
+        columnNumber: 11
+      }
+    }, __jsx("img", {
+      src: '../.../.../images/Emblem_Silver.png',
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 108,
+        columnNumber: 13
+      }
+    }), __jsx("div", {
+      className: "rankedText",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 109,
+        columnNumber: 13
+      }
+    }, __jsx("h3", {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 110,
+        columnNumber: 13
+      }
+    }, this.state.summoner.ranked_solo_fives.tier, " ", this.state.summoner.ranked_solo_fives.division), __jsx("h4", {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 111,
+        columnNumber: 13
+      }
+    }, "Ranked solo fives"), __jsx("h4", {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 112,
+        columnNumber: 13
+      }
+    }, this.state.summoner.ranked_solo_fives.league_points))), __jsx("div", {
+      className: "MatchList",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 115,
+        columnNumber: 11
+      }
+    }, __jsx(_components_MatchList__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      MatchList: this.state.summoner.matchs,
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 116,
+        columnNumber: 13
+      }
+    })), __jsx("div", {
+      className: "mostPlayed",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 118,
+        columnNumber: 11
+      }
+    }, __jsx("h3", {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 119,
+        columnNumber: 13
+      }
+    }, "Campeones m\xE1s jugados"), this.state.summoner.campeones_mas_jugados.map(campeon => {
+      return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx("div", {
+        className: "campeonIcon",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 123,
+          columnNumber: 19
+        }
+      }, __jsx("img", {
+        src: campeon.campeon.icon,
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 124,
+          columnNumber: 21
+        }
+      })), __jsx("div", {
+        className: "campeonName",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 126,
+          columnNumber: 19
+        }
+      }, __jsx("h6", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 127,
+          columnNumber: 21
+        }
+      }, campeon.campeon.nombre)), __jsx("div", {
+        className: "campeonCantidad",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 129,
+          columnNumber: 19
+        }
+      }, __jsx("p", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 130,
+          columnNumber: 21
+        }
+      }, campeon.cantidad)));
+    }))));
   }
 
 }
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /*!*************************************************************!*\
   !*** multi ./src/pages/summoner/[region]/[summonerName].js ***!
   \*************************************************************/
@@ -2529,17 +2996,6 @@ class Home extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
 
 module.exports = __webpack_require__(/*! /home/beleno/Desktop/Proyectos/Personales/Report.gg/src/pages/summoner/[region]/[summonerName].js */"./src/pages/summoner/[region]/[summonerName].js");
 
-
-/***/ }),
-
-/***/ "next/router":
-/*!******************************!*\
-  !*** external "next/router" ***!
-  \******************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("next/router");
 
 /***/ }),
 
@@ -2573,6 +3029,28 @@ module.exports = require("prop-types-exact");
 /***/ (function(module, exports) {
 
 module.exports = require("react");
+
+/***/ }),
+
+/***/ "react-chartjs-2":
+/*!**********************************!*\
+  !*** external "react-chartjs-2" ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("react-chartjs-2");
+
+/***/ }),
+
+/***/ "semantic-ui-react":
+/*!************************************!*\
+  !*** external "semantic-ui-react" ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("semantic-ui-react");
 
 /***/ }),
 

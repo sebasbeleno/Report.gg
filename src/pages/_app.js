@@ -6,9 +6,11 @@ import React from 'react'
 
 // Styless imports
 import "../components/Styles/Navbar.css";
+import "../components/Styles/MatchList.css";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './styles/Global.css'
 import "./styles/Home.css";
+import "./styles/Summoner.css";
 import "../components/Styles/Loader.css";
 
 

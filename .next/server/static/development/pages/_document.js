@@ -460,8 +460,10 @@ class Head extends _react.Component {
       canonicalBase,
       __NEXT_DATA__,
       dangerousAsPath,
-      headTags
+      headTags,
+      unstable_runtimeJS
     } = this.context._documentProps;
+    const disableRuntimeJS = unstable_runtimeJS === false;
     const {
       _devOnlyInvalidateCacheQueryString
     } = this.context;
@@ -549,7 +551,7 @@ class Head extends _react.Component {
       });
     }
 
-    return _react.default.createElement("head", this.props, this.context._documentProps.isDevelopment && this.context._documentProps.hasCssMode && _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("style", {
+    return _react.default.createElement("head", this.props, this.context._documentProps.isDevelopment && _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("style", {
       "data-next-hide-fouc": true,
       "data-ampdevmode": inAmpMode ? 'true' : undefined,
       dangerouslySetInnerHTML: {
@@ -596,24 +598,24 @@ class Head extends _react.Component {
     })), !inAmpMode && _react.default.createElement(_react.default.Fragment, null, !hasAmphtmlRel && hybridAmp && _react.default.createElement("link", {
       rel: "amphtml",
       href: canonicalBase + getAmpPath(ampPath, dangerousAsPath)
-    }), this.getCssLinks(), page !== '/_error' && _react.default.createElement("link", {
-      rel: "preload",
-      href: assetPrefix + getOptionalModernScriptVariant(encodeURI(`/_next/static/${buildId}/pages${getPageFile(page)}`)) + _devOnlyInvalidateCacheQueryString,
-      as: "script",
-      nonce: this.props.nonce,
-      crossOrigin: this.props.crossOrigin || undefined
-    }), _react.default.createElement("link", {
+    }), this.getCssLinks(), !disableRuntimeJS && _react.default.createElement("link", {
       rel: "preload",
       href: assetPrefix + getOptionalModernScriptVariant(encodeURI(`/_next/static/${buildId}/pages/_app.js`)) + _devOnlyInvalidateCacheQueryString,
       as: "script",
       nonce: this.props.nonce,
       crossOrigin: this.props.crossOrigin || undefined
-    }), this.getPreloadDynamicChunks(), this.getPreloadMainLinks(), this.context._documentProps.isDevelopment && this.context._documentProps.hasCssMode && // this element is used to mount development styles so the
+    }), !disableRuntimeJS && page !== '/_error' && _react.default.createElement("link", {
+      rel: "preload",
+      href: assetPrefix + getOptionalModernScriptVariant(encodeURI(`/_next/static/${buildId}/pages${getPageFile(page)}`)) + _devOnlyInvalidateCacheQueryString,
+      as: "script",
+      nonce: this.props.nonce,
+      crossOrigin: this.props.crossOrigin || undefined
+    }), !disableRuntimeJS && this.getPreloadDynamicChunks(), !disableRuntimeJS && this.getPreloadMainLinks(), this.context._documentProps.isDevelopment && // this element is used to mount development styles so the
     // ordering matches production
     // (by default, style-loader injects at the bottom of <head />)
     _react.default.createElement("noscript", {
       id: "__next_css__DO_NOT_USE__"
-    }), styles || null), this.getFidPolyfill(), _react.default.createElement(_react.default.Fragment, {}, ...(headTags || [])));
+    }), styles || null), !disableRuntimeJS && this.getFidPolyfill(), _react.default.createElement(_react.default.Fragment, {}, ...(headTags || [])));
   }
 
 }
@@ -750,8 +752,10 @@ class NextScript extends _react.Component {
       inAmpMode,
       devFiles,
       __NEXT_DATA__,
-      bodyTags
+      bodyTags,
+      unstable_runtimeJS
     } = this.context._documentProps;
+    const disableRuntimeJS = unstable_runtimeJS === false;
     const {
       _devOnlyInvalidateCacheQueryString
     } = this.context;
@@ -803,7 +807,7 @@ class NextScript extends _react.Component {
       nonce: this.props.nonce,
       crossOrigin: this.props.crossOrigin || undefined
     },  false ? undefined : {})),  false && false];
-    return _react.default.createElement(_react.default.Fragment, null, devFiles ? devFiles.map(file => !file.match(/\.js\.map/) && _react.default.createElement("script", {
+    return _react.default.createElement(_react.default.Fragment, null, !disableRuntimeJS && devFiles ? devFiles.map(file => !file.match(/\.js\.map/) && _react.default.createElement("script", {
       key: file,
       src: `${assetPrefix}/_next/${encodeURI(file)}${_devOnlyInvalidateCacheQueryString}`,
       nonce: this.props.nonce,
@@ -816,7 +820,7 @@ class NextScript extends _react.Component {
       dangerouslySetInnerHTML: {
         __html: NextScript.getInlineScriptSource(this.context._documentProps)
       }
-    }),  false ? undefined : null, this.getPolyfillScripts(), page !== '/_error' && pageScript, appScript, staticMarkup ? null : this.getDynamicChunks(), staticMarkup ? null : this.getScripts(), _react.default.createElement(_react.default.Fragment, {}, ...(bodyTags || [])));
+    }),  false ? undefined : null, !disableRuntimeJS && this.getPolyfillScripts(), !disableRuntimeJS && appScript, !disableRuntimeJS && page !== '/_error' && pageScript, disableRuntimeJS || staticMarkup ? null : this.getDynamicChunks(), disableRuntimeJS || staticMarkup ? null : this.getScripts(), _react.default.createElement(_react.default.Fragment, {}, ...(bodyTags || [])));
   }
 
 }
@@ -888,7 +892,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -902,70 +906,79 @@ class MyDocument extends next_document__WEBPACK_IMPORTED_MODULE_1___default.a {
 
   render() {
     return __jsx(next_document__WEBPACK_IMPORTED_MODULE_1__["Html"], {
+      __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 11
-      },
-      __self: this
+        lineNumber: 11,
+        columnNumber: 7
+      }
     }, __jsx(next_document__WEBPACK_IMPORTED_MODULE_1__["Head"], {
+      __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 12
-      },
-      __self: this
+        lineNumber: 12,
+        columnNumber: 9
+      }
     }, __jsx("script", {
       src: "https://code.jquery.com/jquery-3.2.1.slim.min.js",
       integrity: "sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN",
       crossorigin: "anonymous",
+      __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 13
-      },
-      __self: this
+        lineNumber: 13,
+        columnNumber: 11
+      }
     }), __jsx("script", {
       src: "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js",
       integrity: "sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q",
       crossorigin: "anonymous",
+      __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 14
-      },
-      __self: this
+        lineNumber: 14,
+        columnNumber: 11
+      }
     }), __jsx("script", {
       src: "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js",
       integrity: "sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl",
       crossorigin: "anonymous",
+      __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 15
-      },
-      __self: this
+        lineNumber: 15,
+        columnNumber: 11
+      }
     }), __jsx("link", {
       rel: "stylesheet",
       href: "//cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css",
+      __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 16
-      },
-      __self: this
+        lineNumber: 16,
+        columnNumber: 11
+      }
     })), __jsx("body", {
+      __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 18
-      },
-      __self: this
+        lineNumber: 18,
+        columnNumber: 9
+      }
     }, __jsx(next_document__WEBPACK_IMPORTED_MODULE_1__["Main"], {
+      __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 19
-      },
-      __self: this
+        lineNumber: 19,
+        columnNumber: 11
+      }
     }), __jsx(next_document__WEBPACK_IMPORTED_MODULE_1__["NextScript"], {
+      __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 20
-      },
-      __self: this
+        lineNumber: 20,
+        columnNumber: 11
+      }
     })));
   }
 

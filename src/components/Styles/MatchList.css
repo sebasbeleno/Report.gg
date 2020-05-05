@@ -1,0 +1,104 @@
+.matchItem{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-areas: "campeonJugado informacion items items  equipos equipos";
+    border-radius: 20px;
+    grid-gap: 0px;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.campeonJugado{
+    display: grid;
+    grid-area: campeonJugado;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: "campeon habilidades";
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.campeonIcon{
+    border-radius: 100%;
+    width: 100%;
+}
+
+.campeonJugado h3{
+    font-size: 15px;
+    justify-content: center;
+    white-space: nowrap;
+    width: 100%;                   /* IE6 needs any width */
+    overflow: hidden;              /* "overflow" value must be different from  visible"*/ 
+    -o-text-overflow: ellipsis;    /* Opera < 11*/
+    text-overflow:    ellipsis; 
+}
+
+.habilidadesDeInvocador{
+    grid-area: habilidades;
+    grid-row-end: 3;
+}
+
+.habilidadesDeInvocador img{
+    width: 60%;
+}
+
+.win{
+    background: linear-gradient(90deg, rgba(120, 235, 110, 0.49) 0%, rgba(19, 236, 0, 0.08) 100%);
+}
+
+.lose{
+    background: linear-gradient(90deg, #CB524A 0%, rgba(188, 11, 0, 0.08) 100%);
+}
+
+.informacion{
+    grid-area: informacion;
+}
+
+.items{
+    grid-area: items;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 5px;
+
+}
+
+.items img{
+    width: 70%;
+}
+
+.equipos{
+    grid-area: equipos;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.equipos img{
+    width: 50%;
+    border-radius: 100%;
+}
+
+.equipos p{
+    white-space: nowrap;
+    width: 100%;                   /* IE6 needs any width */
+    overflow: hidden;              /* "overflow" value must be different from  visible"*/ 
+    -o-text-overflow: ellipsis;    /* Opera < 11*/
+    text-overflow:    ellipsis;    /* IE, Safari (WebKit), Opera >= 11, FF > 6 */
+}
+
+.equipoAzul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    justify-content: center;
+    align-items: center;
+}
+
+.equipoRojo {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    justify-content: center;
+    align-items: center;
+}

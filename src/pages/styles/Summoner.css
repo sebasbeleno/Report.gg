@@ -1,0 +1,93 @@
+.contenedor{
+    display: grid;
+    margin: auto;
+    padding: 0 10%;
+    grid-template-columns: repeat(5, 1fr);
+
+    grid-template-areas:    "profileIcon summonerBasicInfo winratio rankedInfo rankedInfo"
+                            "matchList matchList matchList mostPlayed ad";
+
+
+}
+
+.profileIcon{
+    grid-area: profileIcon
+}
+
+.item {
+    position:relative;
+    padding-top:20px;
+    display:inline-block;
+}
+
+.item img{
+    border-radius: 100%;
+    width: 70%;
+}
+
+
+.notify-badge{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border: 3px solid #B59524;
+    left: 100px;
+    background:#1D0D4B;
+    text-align: center;
+    border-radius: 100%;
+    color:white;
+    padding: 10px 0px;
+    font-size: 15px;
+}
+
+.summonerBasicInfo h1{
+    font-size: 50px;
+}
+
+.summonerBasicInfo Button{
+    background: #ffb800 !important;
+    color: white !important;
+    font-weight: bolder !important;
+    font-size: 15px !important;
+}
+
+.rankedInfo {
+    grid-column-start: rankedInfo;
+    grid-column-end: rankedInfo;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+}
+
+.rankedInfo img {
+    width: 100%;
+}
+
+.MatchList{
+    grid-area: matchList;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+    padding: 20px;
+}
+
+.mostPlayed{
+    grid-area: mostPlayed;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(11, 50px);
+    align-items: center;
+    text-align:  center;
+    padding: 20px;
+    grid-gap: 10px;
+}
+
+.mostPlayed h3{
+    grid-column-start: 1;
+    grid-column-end: 4;
+    margin-bottom: 20px;
+}
+
+.campeonIcon img{
+    width: 100%;
+}

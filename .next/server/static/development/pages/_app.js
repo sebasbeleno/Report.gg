@@ -291,6 +291,17 @@ module.exports = _interopRequireDefault;
 
 /***/ }),
 
+/***/ "./src/components/Styles/MatchList.css":
+/*!*********************************************!*\
+  !*** ./src/components/Styles/MatchList.css ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+
 /***/ "./src/components/Styles/Navbar.css":
 /*!******************************************!*\
   !*** ./src/components/Styles/Navbar.css ***!
@@ -320,14 +331,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _components_Styles_Navbar_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/Styles/Navbar.css */ "./src/components/Styles/Navbar.css");
 /* harmony import */ var _components_Styles_Navbar_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_components_Styles_Navbar_css__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! bootstrap/dist/css/bootstrap.min.css */ "./node_modules/bootstrap/dist/css/bootstrap.min.css");
-/* harmony import */ var bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _styles_Global_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./styles/Global.css */ "./src/pages/styles/Global.css");
-/* harmony import */ var _styles_Global_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_styles_Global_css__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _styles_Home_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./styles/Home.css */ "./src/pages/styles/Home.css");
-/* harmony import */ var _styles_Home_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_styles_Home_css__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _components_Styles_Loader_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/Styles/Loader.css */ "./src/components/Styles/Loader.css");
-/* harmony import */ var _components_Styles_Loader_css__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_components_Styles_Loader_css__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _components_Styles_MatchList_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/Styles/MatchList.css */ "./src/components/Styles/MatchList.css");
+/* harmony import */ var _components_Styles_MatchList_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_components_Styles_MatchList_css__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! bootstrap/dist/css/bootstrap.min.css */ "./node_modules/bootstrap/dist/css/bootstrap.min.css");
+/* harmony import */ var bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _styles_Global_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./styles/Global.css */ "./src/pages/styles/Global.css");
+/* harmony import */ var _styles_Global_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_styles_Global_css__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _styles_Home_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./styles/Home.css */ "./src/pages/styles/Home.css");
+/* harmony import */ var _styles_Home_css__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_styles_Home_css__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _styles_Summoner_css__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./styles/Summoner.css */ "./src/pages/styles/Summoner.css");
+/* harmony import */ var _styles_Summoner_css__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_styles_Summoner_css__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _components_Styles_Loader_css__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/Styles/Loader.css */ "./src/components/Styles/Loader.css");
+/* harmony import */ var _components_Styles_Loader_css__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_components_Styles_Loader_css__WEBPACK_IMPORTED_MODULE_9__);
 var _jsxFileName = "/home/beleno/Desktop/Proyectos/Personales/Report.gg/src/pages/_app.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement;
 
@@ -337,6 +352,8 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 
 
  // Styless imports
+
+
 
 
 
@@ -367,24 +384,27 @@ class MyApp extends next_app__WEBPACK_IMPORTED_MODULE_0___default.a {
       router
     } = this.props;
     return __jsx(react__WEBPACK_IMPORTED_MODULE_2___default.a.Fragment, null, __jsx(next_head__WEBPACK_IMPORTED_MODULE_1___default.a, {
+      __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 28
-      },
-      __self: this
+        lineNumber: 30,
+        columnNumber: 13
+      }
     }, __jsx("title", {
+      __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 30
-      },
-      __self: this
+        lineNumber: 32,
+        columnNumber: 15
+      }
     }, "Report.gg")), __jsx(Component, _extends({}, pageProps, {
       key: router.route,
+      __self: this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 35
-      },
-      __self: this
+        lineNumber: 37,
+        columnNumber: 13
+      }
     })));
   }
 
@@ -407,6 +427,17 @@ class MyApp extends next_app__WEBPACK_IMPORTED_MODULE_0___default.a {
 /*!***********************************!*\
   !*** ./src/pages/styles/Home.css ***!
   \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+
+/***/ "./src/pages/styles/Summoner.css":
+/*!***************************************!*\
+  !*** ./src/pages/styles/Summoner.css ***!
+  \***************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
